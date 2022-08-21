@@ -1,0 +1,38 @@
+Git is a version cintrol system.
+
+// 本地管理
+1.  git init
+2.  git add xxx         // 存入暂存区
+3.  git commit -m "xxx"
+4.  git status  xxx     // watch whether file chagne 
+5.  git diff xxx        // watch the detiale change of xxx 
+6.  git log             // all commit inforamtion 
+7.  git log   --pretty=online    // hide the commit id 
+8.  HEAD, HEAD^,HEAD^^,...,HEAD~100 // current version, second version...
+    git reset --hard HEAD^          // retreat/withdraw last version
+                                    // quash/undo/revocation/revoke
+9.  cat readme.txt      // read and display
+10. git reset --hard id     // recover version
+11. git reflog              // history operate
+12. git diff HEAD --readme.txt  //workspace and version liberay diff  工作区和暂存区/版本库里的区别 
+
+14. git reset HEAD file    //撤销暂存区修改，重新放回工作区
+   代替  git restore -- stage file 
+13. git checkout -- file   //丢弃工作区的修改，回到最近一次git commit/ git add 状态，回退一次 
+   代替  git restore file 
+
+15. rm file  // 删除文件（目录）
+    git rm file  // 删除目录中的file,并把此次删除提交到暂存区(目录、暂存区)
+16. git checkout --file // 工作区（目录）恢复到暂存区中file状态
+    先使用git reset head file 在暂存区中将删除操作丢弃，然后git checkout -- file 恢复到工作区
+
+// 远程仓库管理
+//..........一晚上没有关联成功..........
+创建库后有两种方式：
+1. 克隆下来新的仓库
+    创建时勾选Initial this re.....  -> 自动创建readme.txt 文件
+    git clone 
+2. 关联已有的仓库
+
+// 分支管理
+1. 
