@@ -82,4 +82,8 @@ Git is a version cintrol system.
 3. git switch -c dev //创建并切换到dev分支
 4. git switch master //切换到master分支
 
+// 分支冲突 冲突时需要手动修改
+<<<<<  ======  >>>>>  标记不同分支的内容
+git log --graph 命令可以看到分支合并图
+
 
