@@ -69,10 +69,17 @@ Git is a version cintrol system.
 1. 主分支 master  HEAD指向当前分支
 2. 创建dev分支 -- 修改 -- 合并到主分支 -- 删除dev分支 
 步骤：
-1. 创建dev分支、切换到dev分支
-    git checkout -b dev // 创建  -b 切换
-    == git branch dev + git checkout dev
+    1. 创建dev分支、切换到dev分支
+        git checkout -b dev // 创建  -b 切换
+        == git branch dev + git checkout dev
 
-2. git branch //查看所有分支  当前分支* 
-3. git check 
+    2. git branch //查看所有分支  当前分支* 
+    3. git checkout main // 切换为主分支
+    4. git merge dev // dev 分支合并到主分支  
+        // fast-forward 快进模式 
+    5. git branch -d dev // 删除dev分支
+
+3. git switch -c dev //创建并切换到dev分支
+4. git switch master //切换到master分支
+
 
