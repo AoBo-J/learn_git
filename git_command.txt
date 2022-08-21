@@ -1,5 +1,6 @@
 Git is a version cintrol system.
 
+一、
 // 本地管理
 1.  git init
 2.  git add xxx         // 存入暂存区
@@ -26,13 +27,52 @@ Git is a version cintrol system.
 16. git checkout --file // 工作区（目录）恢复到暂存区中file状态
     先使用git reset head file 在暂存区中将删除操作丢弃，然后git checkout -- file 恢复到工作区
 
-// 远程仓库管理
-//..........一晚上没有关联成功..........
-创建库后有两种方式：
-1. 克隆下来新的仓库
-    创建时勾选Initial this re.....  -> 自动创建readme.txt 文件
-    git clone 
-2. 关联已有的仓库
 
+二、
+// 远程仓库管理
+//...最新的使用main, 以前都是master,
+//...gitee 没有进行关联试验，仅仅是连通，main/master 
+步骤：
+    1. 查看.ssh公钥 
+        cd ~/.ssh       //有几个ssh秘钥
+        ll              //
+        vi/vim 复制 y   //
+    2. 创建公钥
+        ssh-keygen -t rsa -C "aobo@163.com"  // -f "xxx"  给文件命名
+        无需输入密码，三连enter键；--> 之后使用不需要输入密码
+    3. 修改/添加github、gitee公钥
+        ssh -T git@github /@gitee  查看链接状态
+        yes/no/    --> 输入 yes 
+        链接成功，但......
+    4. 创建github/gitee仓库
+        创建时勾选Initial this re.....  -> 自动创建readme.txt 文件
+    5. 关联本地仓库
+        git remote add origin git@github.com:AoBo-J/learn_git.git
+        git branch -M main
+        git push -u origin main 
+        // 远程仓库的名字叫origin, git默认叫法，可以修改（没试过）
+    6. 推送到远程仓库
+        git push -u origin main //将当前分支main 推送到远端
+        // 第一次推送加上-u参数，git推送并关联起来
+        git push origin main 
+
+// 删除远程库关联
+    1. git remote -v   // 查看远程库信息
+    2. git remote rm xxx (origin) // 删除关联
+
+//克隆远程库 关联仓库
+    git clone 
+
+
+三、
 // 分支管理
-1. 
+1. 主分支 master  HEAD指向当前分支
+2. 创建dev分支 -- 修改 -- 合并到主分支 -- 删除dev分支 
+步骤：
+1. 创建dev分支、切换到dev分支
+    git checkout -b dev // 创建  -b 切换
+    == git branch dev + git checkout dev
+
+2. git branch //查看所有分支  当前分支* 
+3. git check 
+
