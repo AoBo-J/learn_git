@@ -122,6 +122,7 @@ git log --graph 命令可以看到分支合并图
 
     8. master上的错误修改后，顺便在dev上修改： git cherry-pick 4c805e (issue id )
 
+// 在master上面修改
 
 
 
