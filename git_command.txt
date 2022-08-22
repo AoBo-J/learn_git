@@ -106,12 +106,14 @@ git log --graph 命令可以看到分支合并图
 1. bug修复通过新建分支，修改以后合并分支、删除分支
 2. git stash 存藏当前工作
     步骤：
-     1. 工作区 dev
-     2. git stash
-     3. git checkout -b issue-101 
+    1. 工作区 dev
+    2. git stash
+     
+    3. git checkout -b issue-101 
         git switch -c issue-101  // 跳转到问题分支，并创建debug分支
     4.  git switch master 
         git merger --no-ff -m "debug" issue-101
+
     5.  git switch dev / git status
         git stash list   // 查看stash列表
     6.  git stash apply  // 恢复 stash 到工作区
@@ -122,7 +124,49 @@ git log --graph 命令可以看到分支合并图
 
     8. master上的错误修改后，顺便在dev上修改： git cherry-pick 4c805e (issue id )
 
-// 在master上面修改
+// 丢弃一个还未被合并过的分支
+    git branch -D xxx   // D 强行删除
+
+
+// 多人协作
+git remote -v //显示远程库的信息
+显示抓取和推送的 origin 地址，没有推送权限看不到push地址
 
 
 
+四、标签管理
+1. git tag v1.0  //打标签
+2. git tag       //查看标签
+3. 
+
+
+
+五、参与开源项目
+1. 右上角一排，fork开源库，
+2. 自己拥有fork后的库的读写权限，对其进行修改
+3. 推送pull request，给官方仓库贡献代码
+    github
+|-------------------------------------|
+|   tb/re    ->       my/re           |
+|-------------------------------------|
+                       <-->     local/re
+
+
+六、gitee
+1. git remote add origin git@gitee.com:liaoxuefeng/learngit.git  // 关联仓库
+2. git remote -v  // 关联远程库信息
+3. git remote rm origin  // 删除已有的远程库
+4. git remote add gitee git@gitee.com:liaoxuefeng/learngit.git // 换远程库的名字
+// 同时关联gitee 和 github 不能用同一个名字
+5. git push gitee master
+
+
+七、git 
+1. 忽略特殊文件
+2. 配置别名
+    git config --global alias.st status
+    git config --global alias.co checkout
+    git config --global alias.ci commit
+    git config --global alias.br branch
+
+    
