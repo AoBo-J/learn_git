@@ -106,12 +106,14 @@ git log --graph 命令可以看到分支合并图
 1. bug修复通过新建分支，修改以后合并分支、删除分支
 2. git stash 存藏当前工作
     步骤：
-     1. 工作区 dev
-     2. git stash
-     3. git checkout -b issue-101 
+    1. 工作区 dev
+    2. git stash
+     
+    3. git checkout -b issue-101 
         git switch -c issue-101  // 跳转到问题分支，并创建debug分支
     4.  git switch master 
         git merger --no-ff -m "debug" issue-101
+
     5.  git switch dev / git status
         git stash list   // 查看stash列表
     6.  git stash apply  // 恢复 stash 到工作区
