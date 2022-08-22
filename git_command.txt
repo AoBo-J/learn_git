@@ -87,3 +87,41 @@ Git is a version cintrol system.
 git log --graph 命令可以看到分支合并图
 
 
+// 分支管理策略
+1. 合并分支 fast forward 模式 删除分支后丢弃分支信息
+    强制禁用 会生成一个新的commit,能够看见分支信息
+    步骤：
+        1. git switch -c dev 
+        2. git add readme.txt   git commit -m 
+        3. git switch master 
+        4. git merger --no-ff -m '........' dev
+            // 合并会创建新的commit, 加上-m 参数，把commit 的描述加上
+        5. git log 
+
+2. master 分支稳定，只用来发布新版本，
+3. 在dev等分支上干活
+
+
+// bug分支
+1. bug修复通过新建分支，修改以后合并分支、删除分支
+2. git stash 存藏当前工作
+    步骤：
+     1. 工作区 dev
+     2. git stash
+     3. git checkout -b issue-101 
+        git switch -c issue-101  // 跳转到问题分支，并创建debug分支
+    4.  git switch master 
+        git merger --no-ff -m "debug" issue-101
+    5.  git switch dev / git status
+        git stash list   // 查看stash列表
+    6.  git stash apply  // 恢复 stash 到工作区
+        git stash drop   //  清楚stash 
+        //...git stash pop // 恢复并删除
+    7. git stash apply stash@{0} // 恢复指定stash
+// commit 多的往commit 少的提交
+
+    8. master上的错误修改后，顺便在dev上修改： git cherry-pick 4c805e (issue id )
+
+
+
+
