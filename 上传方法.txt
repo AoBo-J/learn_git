@@ -1,0 +1,14 @@
+如何上传：
+    1. 在 dev 分支工作， 
+    2. commit 
+    3. main 分支合并 git merge --no-ff -m 'xx ' dev 
+    4. push 
+
+    如果远程main已经修改过，
+    需要先  pull origin main 
+    再push
+
+    git push -u origin dev // 关联远程分支
+    分支和main一样的操作方式
+
+    // 现在更新只需要，dev commit , main  merge ， push 
