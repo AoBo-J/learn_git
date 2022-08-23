@@ -1,4 +1,12 @@
-# learn_git
-## 系统学习git,记录一些笔记和命令
-
-## 8.20
+####
+.
+. dev readme.md 为什么不会合并到main
+. pull main ->  push 
+. 
+.
+.
+.
+.
+.
+.
+###
