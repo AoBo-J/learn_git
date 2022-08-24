@@ -127,17 +127,51 @@ git log --graph 命令可以看到分支合并图
 // 丢弃一个还未被合并过的分支
     git branch -D xxx   // D 强行删除
 
-
+//...............................................
 // 多人协作
 git remote -v //显示远程库的信息
 显示抓取和推送的 origin 地址，没有推送权限看不到push地址
 
+// 创建远程分支origin的dev到本地
+git checkout -b dev origin/dev  // 之后可以commit，push
+
+//提交时出现冲突
+//在第一次提交前，别人对分支修改后不能直接pull
+git branch --set-upstream-to=origin/dev dev   
+git pull // 有冲突需要手动解决
+git push origin dev  // 提交
+
+
+git log --graph --pretty=oneline --abbrev-commit // 分支
+// git 用 HEAD -> master 标识当前分支HEAD
+// origin/master 标识 远程 origin的位置
+git rebase  // 将分支变为一条直线
+// 查看分支变得简单一些
+
+//............................................... 
+
 
 
 四、标签管理
+// 切换到分支、打标签，默认打在最新的commit上面
 1. git tag v1.0  //打标签
 2. git tag       //查看标签
-3. 
+// 给历史commit打标签
+3. git log --pretty=oneline --abbrev-commit // commit历史
+    git tag v2.1 f34jhsdj
+4. 标签不是按顺序列出，按照字母排序
+    git show v2.1 //查看标签信息
+5. git tag -a v0.1 -m "version 0.1 released" 1094adb
+// 创建带有说明的标签， -a 指定标签名， -m指定说明文字
+
+// 标签是和commit挂钩，如果commit出现在多个分支上，每个分支都可以看见这个标签
+// 标签存储在本地，不会自动推送到远端
+
+6. git tag -d v2.1 // 删除标签 
+7. git push origin v2 // 推送分支到远程
+8. git push origin --tags // 全部推送到远端
+9. git tag -d v2.1  git push origin :refs/tags/v0.9  //删除远程tag
+
 
 
 
@@ -168,5 +202,9 @@ git remote -v //显示远程库的信息
     git config --global alias.co checkout
     git config --global alias.ci commit
     git config --global alias.br branch
+3. 创建.gitignore文件，把忽略的文件名字填进去，就会自动忽略
+4. 搭建git服务器
+5. sourcetree
+
 
     
